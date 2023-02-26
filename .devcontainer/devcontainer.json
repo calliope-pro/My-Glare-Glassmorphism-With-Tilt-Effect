@@ -1,0 +1,40 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+  "name": "my-glare-glassmorphism-with-tilt-effect",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
+  "service": "front",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "MS-CEINTL.vscode-language-pack-ja",
+        "bierner.emojisense",
+        "formulahendry.auto-rename-tag",
+        "dsznajder.es7-react-js-snippets",
+        "vincaslt.highlight-matching-tag",
+        "PKief.material-icon-theme",
+        "dbaeumer.vscode-eslint",
+        "codezombiech.gitignore",
+        "donjayamanne.githistory",
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3001],
+
+  // Uncomment the next line to run commands after the container is created.
+  "postCreateCommand": "yarn"
+
+  // Configure tool-specific properties.
+  // "customizations": {},
+
+  // Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "devcontainer"
+}
