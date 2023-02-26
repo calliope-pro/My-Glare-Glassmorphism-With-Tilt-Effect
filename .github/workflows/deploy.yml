@@ -1,0 +1,43 @@
+name: Deploy to Deta
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: ['main']
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Deta Space Deployment Github Action
+        # You may pin to the exact commit or the version.
+        # uses: neobrains/space-deployment-github-action@a6bd4bd7b211f30dd76383a24fc34ab2ba363f79
+        uses: neobrains/space-deployment-github-action@v0.3
+        with:
+          # Deta access token for Deta Space CLI authentication.
+          access_token: ${{ secrets.SPACE_ACCESS_TOKEN }}
+          # Deta Space app project ID.
+          project_id: ${{ secrets.SPACE_PROJECT_ID }}
+          # Whether to do space push. Valid value is "true". Space push will not be performed by default.
+          space_push: true
+          # Whether to do space release without listing the revision on Space Discovery. Valid value is "true". Space release will not be performed by default.
+          # space_release: # optional
+          # Whether to list the latest revision on Space Discovery. Valid value is "true". Listing on Space Discovery will not be performed by default.
+          # list_on_discovery: # optional
+          # Version for the release. If not provided, Deta Space will generate a version by default.
+          # release_version: # optional
+
+      - name: Deployed!
+        run: echo Deployed!

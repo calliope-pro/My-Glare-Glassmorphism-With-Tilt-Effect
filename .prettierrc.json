@@ -1,0 +1,7 @@
+{
+  "tabWidth": 4,
+  "singleQuote": true,
+  "jsxSingleQuote": false,
+  "singleAttributePerLine": true,
+  "overrides": [{ "files": "*.json", "options": { "tabWidth": 2 } }]
+}
