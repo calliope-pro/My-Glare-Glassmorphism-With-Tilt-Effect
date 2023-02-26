@@ -1,9 +1,10 @@
 # Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
 v: 0
-app_name: nextjs-ui
+app_name: my-glassmorphism
 micros:
     - name: My-Glare-Glassmorphism-With-Tilt-Effect
       src: .
       engine: next
       public_routes:
         - '/*'
+      primary: true
